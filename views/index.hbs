@@ -119,11 +119,11 @@
 					                <div class="panel">
 					                    <div class="panel-heading">
 					                      <div class="panel-title">
-					                        <h4 class="job-title"><i class="fa fa-minus-square" id="j1" aria-hidden="true"></i>{{this.employerName}}<span class="text-decor"> / {{this.position}}</span></h4>
+					                        <h4 class="job-title"><i class="fa fa-minus-square" id="j{{@index}}" aria-hidden="true"></i>{{this.employerName}}<span class="text-decor"> / {{this.position}}</span></h4>
 					                      </div>
 					                    </div>
 
-					                    <div id="job1" aria-expanded="true">
+					                    <div id="job{{@index}}" aria-expanded="true">
 					                      <div class="panel-body">
 					                        <p>
 											{{this.explanation}}  
@@ -151,11 +151,11 @@
 
 					                    <div class="panel-heading">
 					                      <div class="panel-title">
-					                        <h4 class="edu-title"><i class="fa fa-minus-square" id="s1" aria-hidden="true"></i>{{this.schoolName}}<span class="text-decor">/ {{this.programmeName}}</span></h4>
+					                        <h4 class="edu-title"><i class="fa fa-minus-square" id="s{{@index}}" aria-hidden="true"></i>{{this.schoolName}}<span class="text-decor"> / {{this.programmeName}}</span></h4>
 					                      </div>
 					                    </div>
 
-					                    <div id="school1" aria-expanded="true">
+					                    <div id="school{{@index}}" aria-expanded="true">
 					                      <div class="panel-body">
 					                        <p>
 					                          {{this.explanation}}  

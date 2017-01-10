@@ -32,6 +32,7 @@
     	</div>
     </div>
     <script>
+        //This is for hover effect for arrow when it is triggered to download button
     $("#hover").hover(function(){
       $("#level-down").css({
         color: "#01a69a",
@@ -49,68 +50,36 @@
     );
     </script>
     <script>
+        //This is for job's description show/hide
     var i = 0;
-    $("#j1").click(function(){
-      if(i++ % 2 === 0){
-        $("#job1").hide("slow");
-        $("#j1").removeClass('fa-minus-square');
-        $("#j1").addClass('fa-plus-square');
-      }else{
-        $("#job1").show("slow");
-        $("#j1").removeClass('fa-plus-square');
-        $("#j1").addClass('fa-minus-square');
-      }
-    });
-    //Duplicated stupidly, fix comes with backend
-    var j = 0;
-    $("#j2").click(function(){
-      if(j++ % 2 === 0){
-        $("#job2").hide("slow");
-        $("#j2").removeClass('fa-minus-square');
-        $("#j2").addClass('fa-plus-square');
-      }else{
-        $("#job2").show("slow");
-        $("#j2").removeClass('fa-plus-square');
-        $("#j2").addClass('fa-minus-square');
-      }
-    });
-    var y = 0;
-    $("#j3").click(function(){
-      if(y++ % 2 === 0){
-        $("#job3").hide("slow");
-        $("#j3").removeClass('fa-minus-square');
-        $("#j3").addClass('fa-plus-square');
-      }else{
-        $("#job3").show("slow");
-        $("#j3").removeClass('fa-plus-square');
-        $("#j3").addClass('fa-minus-square');
-      }
-    });
-    //Duplicated stupidly, fix comes with backend
+    for(let l = 0; l < {{page.expirience.length}}; l++) {
+        $("#j"+l).click(function () {
+            if (i++ % 2 === 0) {
+                $("#job"+l).hide("slow");
+                $("#j"+l).removeClass('fa-minus-square');
+                $("#j"+l).addClass('fa-plus-square');
+            } else {
+                $("#job"+l).show("slow");
+                $("#j"+l).removeClass('fa-plus-square');
+                $("#j"+l).addClass('fa-minus-square');
+            }
+        });
+    }
+        //This is for school's description show/hide
     var s = 0;
-    $("#s1").click(function(){
-      if(s++ % 2 === 0){
-        $("#school1").hide("slow");
-        $("#s1").removeClass('fa-minus-square');
-        $("#s1").addClass('fa-plus-square');
-      }else{
-        $("#school1").show("slow");
-        $("#s1").removeClass('fa-plus-square');
-        $("#s1").addClass('fa-minus-square');
-      }
-    });
-    var c = 0;
-    $("#s2").click(function(){
-      if(c++ % 2 === 0){
-        $("#school2").hide("slow");
-        $("#s2").removeClass('fa-minus-square');
-        $("#s2").addClass('fa-plus-square');
-      }else{
-        $("#school2").show("slow");
-        $("#s2").removeClass('fa-plus-square');
-        $("#s2").addClass('fa-minus-square');
-      }
-    });
+    for(let i = 0; i < {{page.education.length}}; i++) {
+        $("#s" + i).click(function () {
+            if (s++ % 2 === 0) {
+                $("#school" + i).hide("slow");
+                $("#s" + i).removeClass('fa-minus-square');
+                $("#s" + i).addClass('fa-plus-square');
+            } else {
+                $("#school" + i).show("slow");
+                $("#s" + i).removeClass('fa-plus-square');
+                $("#s" + i).addClass('fa-minus-square');
+            }
+        });
+    }
     </script>
     <script>
     //fixed nav and dropdown
@@ -135,6 +104,7 @@
     });
     </script>
     <script>
+        //This is for dropdown menu toggle on small screensize
     var d = 0;
     $("#dropdown").click(function(){
       if(d++ % 2 === 0){
@@ -191,7 +161,7 @@
           
           }
         }
-      //This one we need for "reload" our slider plugin
+      //This one we need for reloading our slider plugin otherwise we see no sliders
       $("#ext"+j).slider({
         formatter: function(value) {
           return 'Current value: ' + value + '%';
@@ -219,7 +189,7 @@
             '</div>'+
             '<div class="form-group">'+
                 '<label for="expirience.explanation">Description</label>'+
-                '<input type="text" class="form-control" name="expirience['+n+'][explanation]" placeholder="Description">'+
+                '<textarea rows="5" class="form-control" name="expirience['+n+'][explanation]" placeholder="Description" />'+
             '</div>'
         );
         n++;
@@ -245,13 +215,15 @@
             '</div>'+
             '<div class="form-group">'+
                 '<label for="education.explanation">Description</label>'+
-                '<input type="text" class="form-control" name="education['+g+'][explanation]" placeholder="Description">'+
+                '<textarea rows="5" class="form-control" name="education['+g+'][explanation]" placeholder="Description" />'+
             '</div>'
         );
         g++;
       });
     </script>
     <script>
+        //This is for setting form action depending of button's value
+        //And the button's value depends of an answer from server when it checks db for page collections
       $('#form').on('submit', function(){
         var check = $('#modalTrigger').val();
         console.log(check);
