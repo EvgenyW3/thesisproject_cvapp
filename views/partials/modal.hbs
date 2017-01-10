@@ -73,6 +73,29 @@
                 <button type="button" class="btn btn-primary" id="group">Add skill group</button>
             </div>
             <div class="skill-group" id="skill-group">
+                {{# each page.skills}}
+                    <hr>
+                    <div id="group{{@index}}">
+                    <div class="form-group">
+                        <label for="skills.title">Skill group name</label>
+                        <input type="text" class="form-control" name="skills[{{@index}}][title]" placeholder="Skill group name" id="input{{@index}}" value="{{this.title}}">
+                        </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" id="skill" data="{{@index}}">Add skill</button>
+                        </div>
+                        {{# each this.skills}}
+                            <div class="form-group">
+                            <label for="skills.skill.skillName">Skill name</label>
+                            <input type="text" class="form-control" name="skills[{{@../index}}][skills][{{@index}}][skillName]" placeholder="Skill name" value="{{this.skillName}}">
+                            </div>
+                            <div class="form-group">
+                            <label for="skills.skill.mastery">Skill mastery</label>
+                            <br>
+                            <input type="text" id="ext{{@index}}" data-slider-id="ex1Slider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="{{this.mastery}}" value="{{this.mastery}}" name="skills[{{@../index}}][skills][{{@index}}][mastery]">
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/each}}
             </div>
             <br>
             <h4>Experience</h4>
