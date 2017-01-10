@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- Bootstrap slider js and css -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.4/bootstrap-slider.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.4/css/bootstrap-slider.min.css">
+	<!-- Font-awsome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<!-- My custom css -->
+    <link rel='stylesheet' href='/stylesheets/custom.css' />
+    <title>{{title}}</title>
+  </head>
+  <body>
+  	<div class="wrapper">
+		<div class="row label-row">
+      {{> sidebar}}
+        <div class="col-sm-9 main">
+          {{> navigation}}
+          <div class="wrapper-padding">
+            {{> modal}}
+            {{{body}}}
+          </div>
+        </div>
+    	</div>
+    </div>
+    <script>
+    $("#hover").hover(function(){
+      $("#level-down").css({
+        color: "#01a69a",
+        WebkitTransition : '.5s',
+          MozTransition    : '.5s',
+          MsTransition     : '.5s',
+          OTransition      : '.5s',
+          transition       : '.5s'
+      });
+    }, function(){
+      $("#level-down").css({
+        color: "#eeeeee"
+      });
+    }
+    );
+    </script>
+    <script>
+    var i = 0;
+    $("#j1").click(function(){
+      if(i++ % 2 === 0){
+        $("#job1").hide("slow");
+        $("#j1").removeClass('fa-minus-square');
+        $("#j1").addClass('fa-plus-square');
+      }else{
+        $("#job1").show("slow");
+        $("#j1").removeClass('fa-plus-square');
+        $("#j1").addClass('fa-minus-square');
+      }
+    });
+    //Duplicated stupidly, fix comes with backend
+    var j = 0;
+    $("#j2").click(function(){
+      if(j++ % 2 === 0){
+        $("#job2").hide("slow");
+        $("#j2").removeClass('fa-minus-square');
+        $("#j2").addClass('fa-plus-square');
+      }else{
+        $("#job2").show("slow");
+        $("#j2").removeClass('fa-plus-square');
+        $("#j2").addClass('fa-minus-square');
+      }
+    });
+    var y = 0;
+    $("#j3").click(function(){
+      if(y++ % 2 === 0){
+        $("#job3").hide("slow");
+        $("#j3").removeClass('fa-minus-square');
+        $("#j3").addClass('fa-plus-square');
+      }else{
+        $("#job3").show("slow");
+        $("#j3").removeClass('fa-plus-square');
+        $("#j3").addClass('fa-minus-square');
+      }
+    });
+    //Duplicated stupidly, fix comes with backend
+    var s = 0;
+    $("#s1").click(function(){
+      if(s++ % 2 === 0){
+        $("#school1").hide("slow");
+        $("#s1").removeClass('fa-minus-square');
+        $("#s1").addClass('fa-plus-square');
+      }else{
+        $("#school1").show("slow");
+        $("#s1").removeClass('fa-plus-square');
+        $("#s1").addClass('fa-minus-square');
+      }
+    });
+    var c = 0;
+    $("#s2").click(function(){
+      if(c++ % 2 === 0){
+        $("#school2").hide("slow");
+        $("#s2").removeClass('fa-minus-square');
+        $("#s2").addClass('fa-plus-square');
+      }else{
+        $("#school2").show("slow");
+        $("#s2").removeClass('fa-plus-square');
+        $("#s2").addClass('fa-minus-square');
+      }
+    });
+    </script>
+    <script>
+    //fixed nav and dropdown
+    //Also small correction to wrapper-padding
+    $(document).ready(function() {
+
+      $(window).scroll(function () {
+      
+          console.log($(window).scrollTop())
+        
+        if ($(window).scrollTop() > 394) {
+          $('#nav').addClass('nav-fixed-responsive');
+          $('#navv').addClass('dropdown-fixed-responsive');
+          $(".wrapper-padding").css("paddingTop", "92px");
+        }
+        if ($(window).scrollTop() < 395) {
+          $('#nav').removeClass('nav-fixed-responsive');
+          $('#navv').removeClass('dropdown-fixed-responsive');
+          $(".wrapper-padding").css("paddingTop", "50px");
+        }
+      });
+    });
+    </script>
+    <script>
+    var d = 0;
+    $("#dropdown").click(function(){
+      if(d++ % 2 === 0){
+        $("#dropdown-toggle").show("slow");
+        $("#dropdown").removeClass('fa-bars');
+        $("#dropdown").addClass('fa-times');
+      }else{
+        $("#dropdown-toggle").hide("slow");
+        $("#dropdown").removeClass('fa-times');
+        $("#dropdown").addClass('fa-bars');
+      }
+    });
+    </script>
+    <script>
+    //This is for adding new skill group
+    var i = 0;
+      $("#group").click(function(){
+        $('#skill-group').append(
+          '<hr>'+
+          '<div id="group'+ i + '">'+
+          '<div class="form-group">'+
+                '<label for="skills.title">Skill group name</label>'+
+                '<input type="text" class="form-control" name="skills['+i+'][title]" placeholder="Skill group name" id="input'+i+'">'+
+            '</div>'+
+            '<div class="form-group">'+
+                '<button type="button" class="btn btn-primary" id="skill" data="'+ i +'">Add skill</button>'+
+          '</div>'+
+          '</div>'
+        );
+        i++;
+      });
+    //This is for adding new skill to existing group
+    //Delegated on click is used, because button was dynamicly added
+
+    //Explanation below
+    var j = (-1);
+      $("#skill-group").on('click', '#skill', function(){
+    	//For some reason I need to increase j variable here, because otherwise slider doesn't work
+    	//But we need to fill [0] place of the array, thats why j variable starts at (-1) and not from 0
+        j++;
+        for(var l = i; l >= 0; l--){
+          if($(this).attr("data") == l){
+            $('#group'+l).append(
+              '<div class="form-group">'+
+                  '<label for="skills.skill.skillName">Skill name</label>'+
+                  '<input type="text" class="form-control" name="skills['+l+'][skills]['+j+'][skillName]" placeholder="Skill name">'+
+              '</div>'+
+              '<div class="form-group">'+
+                  '<label for="skills.skill.mastery">Skill mastery</label>'+
+                  '<br>'+
+                  '<input type="text" id="ext'+ j +'" data-slider-id="ex1Slider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" name="skills['+l+'][skills]['+j+'][mastery]">'+
+              '</div>'
+            );
+          
+          }
+        }
+      //This one we need for "reload" our slider plugin
+      $("#ext"+j).slider({
+        formatter: function(value) {
+          return 'Current value: ' + value + '%';
+        }
+        });
+      });
+    </script>
+    <script>
+    var n = 0;
+    //This is for adding new job
+      $("#job").click(function(){
+        $('#exp').append(
+          '<hr>'+
+          '<div class="form-group">'+
+                '<label for="expirience.employerName">Employer name</label>'+
+                '<input type="text" class="form-control" name="expirience['+n+'][employerName]" placeholder="Employer name">'+
+            '</div>'+
+            '<div class="form-group">'+
+                '<label for="expirience.position">Position</label>'+
+                '<input type="text" class="form-control" name="expirience['+n+'][position]" placeholder="Position">'+
+            '</div>'+
+            '<div class="form-group">'+
+                '<label for="expirience.date">Date</label>'+
+                '<input type="text" class="form-control" name="expirience['+n+'][date]" placeholder="mm.yyyy - mm.yyyy">'+
+            '</div>'+
+            '<div class="form-group">'+
+                '<label for="expirience.explanation">Description</label>'+
+                '<input type="text" class="form-control" name="expirience['+n+'][explanation]" placeholder="Description">'+
+            '</div>'
+        );
+        n++;
+      });
+    </script>
+    <script>
+    var g = 0;
+    //This is for adding new school
+      $("#school").click(function(){
+        $('#education').append(
+          '<hr>'+
+          '<div class="form-group">'+
+                '<label for="education.schoolName">School name</label>'+
+                '<input type="text" class="form-control" name="education['+g+'][schoolName]" placeholder="School name">'+
+            '</div>'+
+            '<div class="form-group">'+
+                '<label for="education.programmeName">Programme</label>'+
+                '<input type="text" class="form-control" name="education['+g+'][programmeName]" placeholder="Programme">'+
+            '</div>'+
+            '<div class="form-group">'+
+                '<label for="education.date">Date</label>'+
+                '<input type="text" class="form-control" name="education['+g+'][date]" placeholder="mm.yyyy - mm.yyyy">'+
+            '</div>'+
+            '<div class="form-group">'+
+                '<label for="education.explanation">Description</label>'+
+                '<input type="text" class="form-control" name="education['+g+'][explanation]" placeholder="Description">'+
+            '</div>'
+        );
+        g++;
+      });
+    </script>
+    <script>
+      $('#form').on('submit', function(){
+        var check = $('#modalTrigger').val();
+        console.log(check);
+        if(check === 'Create resume'){
+          $(this).attr('action', 'create');
+        }else{
+          $(this).attr('action', 'update');
+        }
+      })
+    </script>
+  </body>
+</html>

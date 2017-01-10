@@ -1,0 +1,429 @@
+html{
+
+}
+/* Background and font to the whole page */
+body{
+	background-color: #262b37;
+	font-family: 'Open Sans', sans-serif;
+}
+/* Margin bottom between each section */
+section{
+	color: #eeeeee;
+	margin-bottom: 60px;
+}
+/* Text styling */
+p{
+	margin-bottom: 20px;
+	text-align: justify;
+}
+
+/* Background to a row to make label with picture separated from main content */
+.label-row{
+	margin: 0;
+	background-color: grey;
+}
+/* Styling for rounded picture container */
+.image-circle{
+	width: 180px;
+	height: 180px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 35px;
+	margin-bottom: 15px;
+	border-radius: 50%;
+	border: 2px solid white;
+	/*box-shadow: 1px 1px 5px grey;*/
+	/* Black-white filter for the image*/
+	-webkit-filter: grayscale(50%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(50%);
+}
+/* Styling for author label container */
+.label{
+	background-color: #eeeeee;
+	margin: 0;
+	padding: 0;
+	border-radius: 0;
+}
+label{
+	font-weight: 500;
+}
+.modal h4{
+	font-weight: 600;
+}
+#modalTrigger{
+	margin-top: -20px;
+}
+/* Styling for main content container */
+.main{
+	background-color: #262b37;
+	min-height: 800px;
+	padding-bottom: 1px;
+}
+/* Adding wite-space to author's label container text elements */
+.caption h4,h5{
+  white-space: -moz-pre-wrap; /* Mozilla */
+  white-space: -pre-wrap; /* Opera 4-6 */    
+  white-space: -o-pre-wrap; /* Opera 7 */    
+  white-space: pre-wrap; /* css-3 */   
+  text-transform: uppercase; 
+}
+/* Margin top for social icons and styling for them */
+.social{
+	margin-top: 5px;
+}
+.social ul{
+	list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+}
+.social li{
+	display: inline;
+}
+.social li > a{
+	color: #01a69a;
+	font-size: 36px;
+/* Transition is for smooth color change */
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+/* Styling for nav tabs */
+nav{
+	height: 42px;
+	background-color: #262b37;
+	border-bottom: 1px solid #ddd;
+	margin-left: -15px;
+    padding-left: 15px;
+    margin-right: -15px;
+}
+.nav-tabs{
+	background-color: #262b37;
+}
+.nav-tabs > li{
+	display: inline;
+}
+.nav-tabs > li > a{
+	color: #eeeeee;
+	border-radius: 0;
+/* Transition is for smooth color change */
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+.nav-tabs > li > a:hover{
+    background-color: inherit;
+    border-color: #01a69a;
+    color: #01a69a;
+}
+.nav-fixed{
+	z-index: 3;
+	margin-left: -15px;
+	padding-left: 15px;
+	width: 100%;
+	position: absolute;
+}
+.nav-fixed-responsive{
+	z-index: 3;
+	margin-left: -15px;
+	padding-left: 15px;
+	position: fixed;
+	top: 0px;
+}
+.dropdown{
+	display: block;
+	z-index: 3;
+	padding-left: 15px;
+	padding-right: 30px;
+	padding-top: 10px;
+}
+.dropdown .nav{
+	padding: 0;
+	margin-top: 20px;
+}
+.dropdown .nav > li{
+	background-color: rgba(9, 113, 105, 0.89);
+	margin-bottom: 1px;
+}
+.dropdown .nav > li > a{
+	text-decoration: none;
+	color: #eeeeee;
+}
+.dropdown .nav > li > a:hover{
+    background-color: inherit;
+    border-color: #01a69a;
+    color: #01a69a;
+}
+.fa-bars{
+	color: #00a69a;
+    font-size: 20px;
+    background-color: #262b37;
+}
+.fa-times{
+	color: #00a69a;
+    font-size: 20px;
+    background-color: #262b37;
+}
+.dropdown-fixed-responsive{
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	margin-left: -15;
+	padding-left: 15px;
+	z-index: 3;
+}
+aside footer{
+	color: #262b37;
+	bottom: 0;
+    font-size: 13px;
+    font-weight: 400;
+    margin-left: 5px;
+    position: absolute;
+    text-align: center;
+    width: 97%;
+    text-shadow: 0 2px rgba(255, 255, 255, 0.8);
+}
+.main-footer{
+	color: rgb(238, 238, 238);
+	bottom: 8px;
+	font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+    width: 100%;
+}
+.text-decor{
+	color: #01a69a;
+}
+.margin-bottom{
+	margin-bottom: 30px;
+}
+.wrapper-padding{
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 50px;
+}
+/* Section ABOUT styling */
+section#about .media span {
+    background-color: inherit;
+    border-radius: 14px;
+    border: 1px solid #00a69a;
+    color: #00a69a;
+    display: block;
+    font-size: 12px;
+    height: 28px;
+    line-height: 26px;
+    text-align: center;
+    width: 28px;
+}
+section#about .media-inline{
+	line-height: 28px;
+}
+section#about .media{
+	margin-bottom: 20px;
+}
+section#about .btn.btn-default {
+    background-color: inherit;
+    border-color: #eeeeee;
+    color: #eeeeee;
+/* Transition is for smooth color change */
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+section#about .btn.btn-default:hover {
+    background-color: inherit;
+    border-color: #01a69a;
+}
+section#about .btn {
+    border-radius: 0;
+}
+section#about .fa{
+	color: #01a69a;
+}
+section#about .fa.fa-level-down{
+	color: #eeeeee;
+}
+/* Section SKILLS styling */
+section#skills .progress {
+    background-color: #262b37;
+    border-radius: 0;
+    border: 1px solid #eeeeee;
+    box-shadow: none;
+    height: 35px;
+    line-height: 35px;
+    padding: 0;
+    margin-bottom: 12px;
+}
+section#skills .progress .progress-bar {
+    background-color: #1c1f28;
+    border-right: 1px solid #00a69a;
+    box-shadow: none;
+    color: #eeeeee;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 33px;
+    text-transform: uppercase;
+}
+section#skills .progress.level {
+    background-color: inherit;
+    border: 0;
+    border-bottom: 1px dotted #eeeeee;
+    border-left: 1px dotted #eeeeee;
+    border-right: 1px dotted #eeeeee;
+}
+section#skills .progress.level .progress-bar {
+    background-color: inherit;
+    box-shadow: none;
+    border-right: 1px dotted #eeeeee;
+    color: #00a69a;
+    font-size: 11px;
+}
+section#skills .progress.level .progress-bar:last-child {
+    border-right: none;
+}
+/* Styling for working experience */
+.job{
+	margin-left: -15px;
+    margin-top: 20px;
+    margin-right: -15px;
+}
+.job-title{
+	margin-top: 0px;
+	line-height: 37px;
+}
+.job-year{
+	width: 110px;
+	line-height: 37px;
+	padding-left: 5px;
+	border: 1px solid #eeeeee;
+}
+section#experience .panel{
+	background-color: inherit;
+}
+section#experience .panel .panel-heading{
+	padding: 0px 15px;
+}
+section#experience .panel-heading .panel-title{
+	line-height: 40px;
+}
+section#experience .panel-heading .panel-title p{
+	margin: 0;
+}
+section#experience .panel-body{
+	padding: 0px 15px;
+}
+/* Styling for education */
+.edu{
+	margin-left: -15px;
+    margin-top: 20px;
+    margin-right: -15px;
+}
+.edu-title{
+	margin-top: 0px;
+	line-height: 37px;
+}
+.edu-year{
+	width: 110px;
+	line-height: 37px;
+	border: 1px solid #eeeeee;
+	text-align: center;
+}
+section#education .panel{
+	background-color: inherit;
+}
+section#education .panel .panel-heading{
+	padding: 0px 15px;
+}
+section#education .panel-heading .panel-title{
+	line-height: 40px;
+}
+section#education .panel-heading .panel-title p{
+	margin: 0;
+}
+section#education .panel-body{
+	padding: 0px 15px;
+}
+.fa-plus-square{
+	font-size: 16px;
+	margin-right: 15px;
+	color: #00a69a;
+	cursor: pointer;
+}
+.fa-minus-square{
+	font-size: 16px;
+	margin-right: 15px;
+	color: #00a69a;
+	cursor: pointer;
+}
+
+@media (min-width: 992px){
+	.job{
+		margin-left: 0px;
+    	margin-top: 0px;
+    	margin-right: -15px;
+	}
+	.edu{
+		margin-left: 0px;
+    	margin-top: 0px;
+    	margin-right: -15px;
+	}
+}
+
+@media only screen and (min-width: 768px){
+	.main{
+		background-color: #262b37;
+		min-height: 800px;
+		float:right;
+	}
+	.label{
+		background-color: #eeeeee;
+		margin: 0;
+		padding: 0;
+		border-radius: 0;
+		width: 26%;
+		position: fixed;
+		height: 100%;
+	}
+	.label-row{
+	margin-left: -10px;
+	}
+	.nav-fixed{
+	z-index: 3;
+	margin-left: -15px;
+	padding-left: 15px;
+	width: 100%;
+	top: 0px;
+	position: fixed;
+	}
+	.nav-fixed-responsive{
+
+	}
+	.thumbnail{
+		margin-left: 2.9px;
+	}
+	nav{
+	height: 42px;
+	background-color: #262b37;
+	border-bottom: none;
+	margin-left: -15px;
+    padding-left: 15px;
+    margin-right: -15px;
+	}
+}
+
+@media only screen and (min-width: 390px){
+	.dropdown {
+    display: none;
+	}
+}
+
+@media only screen and (max-width: 389px){
+	.nav-tabs {
+    display: none;
+	}
+}

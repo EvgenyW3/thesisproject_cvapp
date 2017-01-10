@@ -1,0 +1,108 @@
+<!-- Button trigger modal -->
+<button class="btn btn-default" id="modalTrigger" data-toggle="modal" value="{{button}}" data-target="#myModal">{{button}}</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{{button}}</h4>
+      </div>
+      <div class="modal-body">
+      	<form method="POST" id="form">
+        	<h4>Personal information</h4>
+            <input type="hidden" value="{{page._id}}" name="id"/>
+        	<div class="form-group">
+                <label for="photo">Upload photo</label>
+                <input type="file" class="form-control" name="photo" value="{{page.photo}}">
+            </div>
+            <div class="form-group">
+                <label for="cv">Upload CV</label>
+                <input type="file" class="form-control" name="cv" value="{{page.cv}}">
+            </div>
+            <div class="form-group">
+            	<label for="author">Author</label>
+                <input type="text" class="form-control" name="author" placeholder="Author" value="{{page.author}}">
+            </div>
+            <div class="form-group">
+                <label for="profession">Profession</label>
+                <input type="text" class="form-control" name="profession" placeholder="Profession" value="{{page.profession}}">
+            </div>
+            <div class="form-group">
+                <label for="facebook">Facebook link</label>
+                <input type="text" class="form-control" name="facebook" placeholder="Facebook link" value="{{page.facebook}}">
+            </div>
+            <div class="form-group">
+                <label for="linkedIn">LinkedIn link</label>
+                <input type="text" class="form-control" name="linkedIn" placeholder="LinkedIn link" value="{{page.linkedIn}}">
+            </div>
+            <div class="form-group">
+                <label for="github">Github link</label>
+                <input type="text" class="form-control" name="github" placeholder="Github link" value="{{page.github}}">
+            </div>
+            <br>
+            <h4>About</h4>
+            <div class="form-group">
+                <label for="aboutSubtitle">Subtitle</label>
+                <input type="text" class="form-control" name="aboutSubtitle" placeholder="Subtitle" value="{{page.aboutSubtitle}}">
+            </div>
+            <div class="form-group">
+                <label for="about.coverLetter">Cover letter</label>
+                <textarea class="form-control" rows="5" name="about.coverLetter" placeholder="Cover letter">{{page.about.coverLetter}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="about.phoneNumber">Phone number</label>
+                <input type="text" class="form-control" name="about.phoneNumber" placeholder="Phone number" value="{{page.about.phoneNumber}}">
+            </div>
+            <div class="form-group">
+                <label for="about.email">Email</label>
+                <input type="text" class="form-control" name="about.email" placeholder="Email" value="{{page.about.email}}">
+            </div>
+            <div class="form-group">
+                <label for="about.address">Address</label>
+                <input type="text" class="form-control" name="about.address" placeholder="Address" value="{{page.about.address}}">
+            </div>
+            <br>
+            <h4>Skills</h4>
+            <div class="form-group">
+                <label for="skillsSubtitle">Subtitle</label>
+                <input type="text" class="form-control" name="skillsSubtitle" placeholder="Subtitle" value="{{page.skillsSubtitle}}">
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" id="group">Add skill group</button>
+            </div>
+            <div class="skill-group" id="skill-group">
+            </div>
+            <br>
+            <h4>Experience</h4>
+            <div class="form-group">
+                <label for="expirienceSubtitle">Subtitle</label>
+                <input type="text" class="form-control" name="expirienceSubtitle" placeholder="Subtitle" value="{{page.expirienceSubtitle}}">
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" id="job">Add job</button>
+            </div>
+            <div class="exp" id="exp">
+            </div>
+            <br>
+            <h4>Education</h4>
+            <div class="form-group">
+                <label for="educationSubtitle">Subtitle</label>
+                <input type="text" class="form-control" name="educationSubtitle" placeholder="Subtitle" value="{{page.educationSubtitle}}">
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" id="school">Add school</button>
+            </div>
+            <div class="education" id="education">
+            </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
