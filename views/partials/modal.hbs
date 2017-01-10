@@ -84,6 +84,25 @@
                 <button type="button" class="btn btn-primary" id="job">Add job</button>
             </div>
             <div class="exp" id="exp">
+                {{#each page.expirience}}
+                    '<hr>'+
+                    '<div class="form-group">'+
+                    '<label for="expirience.employerName">Employer name</label>'+
+                    '<input type="text" class="form-control" name="expirience[{{@index}}][employerName]" placeholder="Employer name" value="{{this.employerName}}">'+
+                    '</div>'+
+                    '<div class="form-group">'+
+                    '<label for="expirience.position">Position</label>'+
+                    '<input type="text" class="form-control" name="expirience[{{@index}}][position]" placeholder="Position" value="{{this.position}}">'+
+                    '</div>'+
+                    '<div class="form-group">'+
+                    '<label for="expirience.date">Date</label>'+
+                    '<input type="text" class="form-control" name="expirience[{{@index}}][date]" placeholder="mm.yyyy - mm.yyyy" value="{{this.date}}">'+
+                    '</div>'+
+                    '<div class="form-group">'+
+                    '<label for="expirience.explanation">Description</label>'+
+                    '<textarea rows="5" class="form-control" name="expirience[{{@index}}][explanation]" placeholder="Description">{{this.explanation}}</textarea>'+
+                    '</div>'
+                {{/each}}
             </div>
             <br>
             <h4>Education</h4>
@@ -95,8 +114,26 @@
                 <button type="button" class="btn btn-primary" id="school">Add school</button>
             </div>
             <div class="education" id="education">
+                {{#each page.education}}
+                    <hr>
+                    <div class="form-group">
+                    <label for="education.schoolName">School name</label>
+                    <input type="text" class="form-control" name="education[{{@index}}][schoolName]" placeholder="School name" value="{{this.schoolName}}">
+                    </div>
+                    <div class="form-group">
+                    <label for="education.programmeName">Programme</label>
+                    <input type="text" class="form-control" name="education[{{@index}}][programmeName]" placeholder="Programme" value="{{this.programmeName}}">
+                    </div>
+                    <div class="form-group">
+                    <label for="education.date">Date</label>
+                    <input type="text" class="form-control" name="education[{{@index}}][date]" placeholder="mm.yyyy - mm.yyyy" value="{{this.date}}">
+                    </div>
+                    <div class="form-group">
+                    <label for="education.explanation">Description</label>
+                    <textarea rows="5" class="form-control" name="education[{{@index}}][explanation]" placeholder="Description">{{this.explanation}}</textarea>
+                    </div>
+                {{/each}}
             </div>
-        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
