@@ -85,23 +85,23 @@
             </div>
             <div class="exp" id="exp">
                 {{#each page.expirience}}
-                    '<hr>'+
-                    '<div class="form-group">'+
-                    '<label for="expirience.employerName">Employer name</label>'+
-                    '<input type="text" class="form-control" name="expirience[{{@index}}][employerName]" placeholder="Employer name" value="{{this.employerName}}">'+
-                    '</div>'+
-                    '<div class="form-group">'+
-                    '<label for="expirience.position">Position</label>'+
-                    '<input type="text" class="form-control" name="expirience[{{@index}}][position]" placeholder="Position" value="{{this.position}}">'+
-                    '</div>'+
-                    '<div class="form-group">'+
-                    '<label for="expirience.date">Date</label>'+
-                    '<input type="text" class="form-control" name="expirience[{{@index}}][date]" placeholder="mm.yyyy - mm.yyyy" value="{{this.date}}">'+
-                    '</div>'+
-                    '<div class="form-group">'+
-                    '<label for="expirience.explanation">Description</label>'+
-                    '<textarea rows="5" class="form-control" name="expirience[{{@index}}][explanation]" placeholder="Description">{{this.explanation}}</textarea>'+
-                    '</div>'
+                    <hr>
+                    <div class="form-group">
+                    <label for="expirience.employerName">Employer name</label>
+                    <input type="text" class="form-control" name="expirience[{{@index}}][employerName]" placeholder="Employer name" value="{{this.employerName}}">
+                    </div>
+                    <div class="form-group">
+                    <label for="expirience.position">Position</label>
+                    <input type="text" class="form-control" name="expirience[{{@index}}][position]" placeholder="Position" value="{{this.position}}">
+                    </div>
+                    <div class="form-group">
+                    <label for="expirience.date">Date</label>
+                    <input type="text" class="form-control" name="expirience[{{@index}}][date]" placeholder="mm.yyyy - mm.yyyy" value="{{this.date}}">
+                    </div>
+                    <div class="form-group">
+                    <label for="expirience.explanation">Description</label>
+                    <textarea rows="5" class="form-control" name="expirience[{{@index}}][explanation]" placeholder="Description">{{this.explanation}}</textarea>
+                    </div>
                 {{/each}}
             </div>
             <br>
