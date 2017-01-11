@@ -143,7 +143,7 @@
                 {{#each page.education}}
                     <div id="school{{@index}}">
                         <hr>
-                    <i class="fa fa-trash-o" aria-hidden="true" id="removeSchool" data="{{@index}}"></i>
+                    <i class="fa fa-trash-o" aria-hidden="true" id="removeSchool" data="{{@index}}" value="{{this._id}}"></i>
                     <div class="form-group">
                     <label for="education.schoolName">School name</label>
                     <input type="text" class="form-control" name="education[{{@index}}][schoolName]" placeholder="School name" value="{{this.schoolName}}">

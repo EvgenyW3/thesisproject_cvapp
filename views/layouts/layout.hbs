@@ -246,9 +246,16 @@
   <script>
       //Just stupidly copied from above
       //This is for elements that is already in dom
-      $("#educ").on("click", "#removeSchool", function () {
-          $("#school" + $(this).attr("data")).remove();
-      })
+          $("#educ").on("click", "#removeSchool", function () {
+              $.ajax({
+                  url: 'delete/school/' + $(this).attr("value"),
+                  type: 'GET',
+                  success: function (result) {
+                      console.log(result);
+                  }
+              })
+              $("#school" + $(this).attr("data")).remove();
+          })
   </script>
   <script>
       //Just stupidly copied from above
