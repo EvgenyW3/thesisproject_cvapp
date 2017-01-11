@@ -182,7 +182,9 @@
     //This is for adding new job
       $("#job").click(function(){
         $('#exp').append(
+          '<div id="job'+n+'">'+
           '<hr>'+
+          '<i class="fa fa-trash-o" aria-hidden="true" id="removeJob" data="'+n+'"></i>'+
           '<div class="form-group">'+
                 '<label for="expirience.employerName">Employer name</label>'+
                 '<input type="text" class="form-control" name="expirience['+n+'][employerName]" placeholder="Employer name">'+
@@ -198,9 +200,14 @@
             '<div class="form-group">'+
                 '<label for="expirience.explanation">Description</label>'+
                 '<textarea rows="5" class="form-control" name="expirience['+n+'][explanation]" placeholder="Description" />'+
-            '</div>'
+            '</div>'+
+                  '</div>'
         );
         n++;
+          //Deleting dynamicly generated element
+          $("#exp").on("click", "#removeJob", function () {
+              $("#job" + $(this).attr("data")).remove();
+          })
       });
     </script>
     <script>
@@ -231,18 +238,23 @@
         );
         g++;
         //Deleting dynamicly generated element
-        $("#educ").on("click", "#removeSchool", function (e) {
+        $("#educ").on("click", "#removeSchool", function () {
                 $("#school" + $(this).attr("data")).remove();
-                e.stopPropagation();
             })
         })
     </script>
   <script>
       //Just stupidly copied from above
       //This is for elements that is already in dom
-      $("#educ").on("click", "#removeSchool", function (e) {
+      $("#educ").on("click", "#removeSchool", function () {
           $("#school" + $(this).attr("data")).remove();
-          e.stopPropagation();
+      })
+  </script>
+  <script>
+      //Just stupidly copied from above
+      //This is for elements that is already in dom
+      $("#exp").on("click", "#removeJob", function () {
+          $("#job" + $(this).attr("data")).remove();
       })
   </script>
   </body>
