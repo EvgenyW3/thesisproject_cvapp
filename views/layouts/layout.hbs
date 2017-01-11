@@ -249,7 +249,7 @@
           $("#educ").on("click", "#removeSchool", function () {
               $.ajax({
                   url: 'delete/school/' + $(this).attr("value"),
-                  type: 'GET',
+                  type: 'DELETE',
                   success: function (result) {
                       console.log(result);
                   }

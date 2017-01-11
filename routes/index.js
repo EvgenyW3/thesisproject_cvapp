@@ -12,7 +12,6 @@ router.get('/', function(req, res) {
             var page = new Page();
             page.save();
 		}else{
-		    console.log(page.education);
 			var list = page.skills;
 			var size = 0;
             for(var i = 0; i < list.length; i++){
@@ -29,14 +28,12 @@ router.post('/update', function(req, res) {
         res.redirect('/');
     });
 });
-router.get('/delete/school/:id', function (req, res) {
+router.delete('/delete/school/:id', function (req, res) {
     Page.findOne(function (err, page) {
-        console.log("This is output"+page.education.id);
         if(err) throw err;
         var job = page.education.id(req.params.id).remove();
         page.save(function (error) {
             if(error) throw error;
-                res.redirect('/');
             });
     });
 });
