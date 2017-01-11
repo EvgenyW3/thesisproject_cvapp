@@ -10,7 +10,13 @@ router.get('/', function(req, res, next) {
 		if(!page){
 			res.render('index', {button: 'Create resume'});
 		}else{
-			res.render('index', { title: page.author, button: 'Update resume', page: page });
+			var list = page.skills;
+			var size = 0;
+            for(var i = 0; i < list.length; i++){
+				size += list[i].skills.length;
+            }
+            console.log(size);
+			res.render('index', { title: page.author, button: 'Update resume', page: page, size: size });
 		}
 	});
 });

@@ -85,10 +85,7 @@
     //fixed nav and dropdown
     //Also small correction to wrapper-padding
     $(document).ready(function() {
-
       $(window).scroll(function () {
-      
-          console.log($(window).scrollTop())
         
         if ($(window).scrollTop() > 394) {
           $('#nav').addClass('nav-fixed-responsive');
@@ -127,7 +124,7 @@
           '<div id="group'+ i + '">'+
           '<div class="form-group">'+
                 '<label for="skills.title">Skill group name</label>'+
-                '<input type="text" class="form-control" name="skills['+i+'][title]" placeholder="Skill group name" id="input'+i+'">'+
+                '<input type="text" class="form-control" name="skills['+i+'][title]" placeholder="Skill group name">'+
             '</div>'+
             '<div class="form-group">'+
                 '<button type="button" class="btn btn-primary" id="skill" data="'+ i +'">Add skill</button>'+
@@ -139,13 +136,11 @@
     //This is for adding new skill to existing group
     //Delegated on click is used, because button was dynamicly added
 
-    //Explanation below
-    var j = {{page.skills.1.skills.length}};
+    //For new skills added slider wors because of this variable
+    var j = {{size}};
       $("#skill-group").on('click', '#skill', function(){
-    	//For some reason I need to increase j variable here, because otherwise slider doesn't work
-    	//But we need to fill [0] place of the array, thats why j variable starts at (-1) and not from 0
         j++;
-        for(var l = i; l >= 0; l--){
+        for(let l = i; l >= 0; l--){
           if($(this).attr("data") == l){
             $('#group'+l).append(
               '<div class="form-group">'+
@@ -168,6 +163,16 @@
         }
         });
       });
+    </script>
+    <script>
+        $("#form input[id]").each(function () {
+            console.log(this.id);
+            $("#"+this.id).slider({
+                formatter: function(value) {
+                    return 'Current value: ' + value + '%';
+                }
+            });
+        });
     </script>
     <script>
     var n = {{page.expirience.length}};
@@ -199,7 +204,7 @@
     var g = {{page.education.length}};
     //This is for adding new school
       $("#school").click(function(){
-        $('#education').append(
+        $('#educ').append(
           '<hr>'+
           '<div class="form-group">'+
                 '<label for="education.schoolName">School name</label>'+
