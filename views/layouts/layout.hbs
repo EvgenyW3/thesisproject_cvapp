@@ -89,13 +89,13 @@
     //Also small correction to wrapper-padding
     $(document).ready(function() {
       $(window).scroll(function () {
-        
-        if ($(window).scrollTop() > 394) {
+        //old numbers 394, 395
+        if ($(window).scrollTop() > 340) {
           $('#nav').addClass('nav-fixed-responsive');
           $('#navv').addClass('dropdown-fixed-responsive');
           $(".wrapper-padding").css("paddingTop", "92px");
         }
-        if ($(window).scrollTop() < 395) {
+        if ($(window).scrollTop() < 341) {
           $('#nav').removeClass('nav-fixed-responsive');
           $('#navv').removeClass('dropdown-fixed-responsive');
           $(".wrapper-padding").css("paddingTop", "50px");
