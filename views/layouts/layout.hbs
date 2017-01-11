@@ -25,6 +25,9 @@
         <div class="col-sm-9 main">
           {{> navigation}}
           <div class="wrapper-padding">
+              {{#if error}}
+              <div class="alert alert-danger" role="alert">{{error}}</div>
+              {{/if}}
             {{> modal}}
             {{{body}}}
           </div>
@@ -225,19 +228,6 @@
         );
         g++;
       });
-    </script>
-    <script>
-        //This is for setting form action depending of button's value
-        //And the button's value depends of an answer from server when it checks db for page collections
-      $('#form').on('submit', function(){
-        var check = $('#modalTrigger').val();
-        console.log(check);
-        if(check === 'Create resume'){
-          $(this).attr('action', 'create');
-        }else{
-          $(this).attr('action', 'update');
-        }
-      })
     </script>
   </body>
 </html>

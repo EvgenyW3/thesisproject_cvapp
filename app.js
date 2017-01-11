@@ -6,12 +6,22 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
+var Page = require('./models/page.js');
 
 var routes = require('./routes/index');
 var admin = require('./routes/admin');
 
 mongoose.Promise = global.Promise;
 mongoose.connect('localhost:27017/portfolio');
+
+//Creating an epmty page doc on server run if it doesn't exist
+Page.findOne(function(err, page){
+  if(err) throw err;
+    if(!page) {
+        var page = new Page();
+        page.save();
+    }
+});
 
 var app = express();
 

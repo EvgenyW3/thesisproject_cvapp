@@ -8,24 +8,17 @@ router.get('/', function(req, res, next) {
 	Page.findOne(function(err, page){
 		if(err) throw err;
 		if(!page){
-			res.render('index', {button: 'Create resume'});
+            res.render('index', { title: "Empty database!", error: "Database is empty! Refresh this page or rerun your server." });
+            var page = new Page();
+            page.save();
 		}else{
 			var list = page.skills;
 			var size = 0;
             for(var i = 0; i < list.length; i++){
 				size += list[i].skills.length;
             }
-            console.log(size);
-			res.render('index', { title: page.author, button: 'Update resume', page: page, size: size });
+			res.render('index', { title: page.author, page: page, size: size });
 		}
-	});
-});
-
-router.post('/create', function(req, res, next) {
-	var page = new Page(req.body);
-	page.save(function(error, result){
-		if(error) throw error;
-		res.redirect('/');
 	});
 });
 
