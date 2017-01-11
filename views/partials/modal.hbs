@@ -138,7 +138,9 @@
             </div>
             <div class="education" id="educ">
                 {{#each page.education}}
-                    <hr>
+                    <div id="school{{@index}}">
+                        <hr>
+                    <i class="fa fa-trash-o" aria-hidden="true" id="removeSchool" data="{{@index}}">Delete</i>
                     <div class="form-group">
                     <label for="education.schoolName">School name</label>
                     <input type="text" class="form-control" name="education[{{@index}}][schoolName]" placeholder="School name" value="{{this.schoolName}}">
@@ -154,6 +156,7 @@
                     <div class="form-group">
                     <label for="education.explanation">Description</label>
                     <textarea rows="5" class="form-control" name="education[{{@index}}][explanation]" placeholder="Description">{{this.explanation}}</textarea>
+                    </div>
                     </div>
                 {{/each}}
             </div>

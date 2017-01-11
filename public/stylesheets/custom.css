@@ -360,6 +360,11 @@ section#education .panel-body{
 	color: #00a69a;
 	cursor: pointer;
 }
+.fa-trash-o{
+	font-size: 20px;
+	color: #d9534f;
+	cursor: pointer;
+}
 
 @media (min-width: 992px){
 	.job{

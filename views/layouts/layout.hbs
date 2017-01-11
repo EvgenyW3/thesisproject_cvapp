@@ -208,7 +208,9 @@
     //This is for adding new school
       $("#school").click(function(){
         $('#educ').append(
-          '<hr>'+
+                  '<div id="school'+g+'">'+
+                  '<hr>'+
+                  '<i class="fa fa-trash-o" aria-hidden="true" id="removeSchool" data="'+g+'"></i>'+
           '<div class="form-group">'+
                 '<label for="education.schoolName">School name</label>'+
                 '<input type="text" class="form-control" name="education['+g+'][schoolName]" placeholder="School name">'+
@@ -224,10 +226,24 @@
             '<div class="form-group">'+
                 '<label for="education.explanation">Description</label>'+
                 '<textarea rows="5" class="form-control" name="education['+g+'][explanation]" placeholder="Description" />'+
-            '</div>'
+            '</div>'+
+                  '</div>'
         );
         g++;
-      });
+        //Deleting dynamicly generated element
+        $("#educ").on("click", "#removeSchool", function (e) {
+                $("#school" + $(this).attr("data")).remove();
+                e.stopPropagation();
+            })
+        })
     </script>
+  <script>
+      //Just stupidly copied from above
+      //This is for elements that is already in dom
+      $("#educ").on("click", "#removeSchool", function (e) {
+          $("#school" + $(this).attr("data")).remove();
+          e.stopPropagation();
+      })
+  </script>
   </body>
 </html>
