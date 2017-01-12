@@ -74,8 +74,9 @@
             </div>
             <div class="skill-group" id="skill-group">
                 {{# each page.skills}}
-                    <hr>
                     <div id="group{{@index}}">
+                        <hr>
+                        <i class="fa fa-trash-o" aria-hidden="true" id="removeGroup" data="{{@index}}" value="{{this._id}}"></i>
                     <div class="form-group">
                         <label for="skills.title">Skill group name</label>
                         <input type="text" class="form-control" name="skills[{{@index}}][title]" placeholder="Skill group name" value="{{this.title}}">

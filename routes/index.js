@@ -46,6 +46,15 @@ router.delete('/delete/job/:id', function (req, res) {
         });
     });
 });
+router.delete('/delete/group/:id', function (req, res) {
+    Page.findOne(function (err, page) {
+        if(err) throw err;
+        var group = page.skills.id(req.params.id).remove();
+        page.save(function (error) {
+            if(error) throw error;
+        });
+    });
+});
 
 
 module.exports = router;

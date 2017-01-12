@@ -123,8 +123,9 @@
     var i = {{page.skills.length}};
       $("#group").click(function(){
         $('#skill-group').append(
-          '<hr>'+
           '<div id="group'+ i + '">'+
+          '<hr>'+
+          '<i class="fa fa-trash-o" aria-hidden="true" id="removeGroup" data="'+i+'"></i>'+
           '<div class="form-group">'+
                 '<label for="skills.title">Skill group name</label>'+
                 '<input type="text" class="form-control" name="skills['+i+'][title]" placeholder="Skill group name">'+
@@ -135,6 +136,10 @@
           '</div>'
         );
         i++;
+          //Deleting dynamicly generated element
+          $("#skill-group").on("click", "#removeGroup", function () {
+              $("#group" + $(this).attr("data")).remove();
+          })
       });
     //This is for adding new skill to existing group
     //Delegated on click is used, because button was dynamicly added
@@ -269,6 +274,20 @@
               }
           })
           $("#job" + $(this).attr("data")).remove();
+      })
+  </script>
+  <script>
+      //Just stupidly copied from above
+      //This is for elements that is already in dom
+      $("#skill-group").on("click", "#removeGroup", function () {
+          $.ajax({
+              url: 'delete/group/' + $(this).attr("value"),
+              type: 'DELETE',
+              success: function (result) {
+                  console.log(result);
+              }
+          })
+          $("#group" + $(this).attr("data")).remove();
       })
   </script>
   </body>
