@@ -29,31 +29,43 @@ router.post('/update', function(req, res) {
     });
 });
 router.delete('/delete/school/:id', function (req, res) {
-    Page.findOne(function (err, page) {
-        if(err) throw err;
-        var school = page.education.id(req.params.id).remove();
-        page.save(function (error) {
-            if(error) throw error;
+    if(req.params.id !== "undefined") {
+        Page.findOne(function (err, page) {
+            if (err) throw err;
+            var school = page.education.id(req.params.id).remove();
+            page.save(function (error) {
+                if (error) throw error;
             });
-    });
+        });
+    }else{
+        res.send("Item does not exist in database, deleted from view only");
+    }
 });
 router.delete('/delete/job/:id', function (req, res) {
-    Page.findOne(function (err, page) {
-        if(err) throw err;
-        var job = page.expirience.id(req.params.id).remove();
-        page.save(function (error) {
-            if(error) throw error;
+    if(req.params.id !== "undefined") {
+        Page.findOne(function (err, page) {
+            if (err) throw err;
+            var job = page.expirience.id(req.params.id).remove();
+            page.save(function (error) {
+                if (error) throw error;
+            });
         });
-    });
+    }else{
+        res.send("Item does not exist in database, deleted from view only");
+    }
 });
 router.delete('/delete/group/:id', function (req, res) {
-    Page.findOne(function (err, page) {
-        if(err) throw err;
-        var group = page.skills.id(req.params.id).remove();
-        page.save(function (error) {
-            if(error) throw error;
+    if(req.params.id !== "undefined") {
+        Page.findOne(function (err, page) {
+            if (err) throw err;
+            var group = page.skills.id(req.params.id).remove();
+            page.save(function (error) {
+                if (error) throw error;
+            });
         });
-    });
+    }else{
+        res.send("Item does not exist in database, deleted from view only");
+    }
 });
 
 
