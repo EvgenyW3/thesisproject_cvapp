@@ -58,11 +58,11 @@
     for(let l = 0; l < {{page.expirience.length}}; l++) {
         $("#j"+l).click(function () {
             if (i++ % 2 === 0) {
-                $("#job"+l).hide("slow");
+                $("#jobs"+l).hide("slow");
                 $("#j"+l).removeClass('fa-minus-square');
                 $("#j"+l).addClass('fa-plus-square');
             } else {
-                $("#job"+l).show("slow");
+                $("#jobs"+l).show("slow");
                 $("#j"+l).removeClass('fa-plus-square');
                 $("#j"+l).addClass('fa-minus-square');
             }
@@ -73,11 +73,11 @@
     for(let i = 0; i < {{page.education.length}}; i++) {
         $("#s" + i).click(function () {
             if (s++ % 2 === 0) {
-                $("#school" + i).hide("slow");
+                $("#schools" + i).hide("slow");
                 $("#s" + i).removeClass('fa-minus-square');
                 $("#s" + i).addClass('fa-plus-square');
             } else {
-                $("#school" + i).show("slow");
+                $("#schools" + i).show("slow");
                 $("#s" + i).removeClass('fa-plus-square');
                 $("#s" + i).addClass('fa-minus-square');
             }
@@ -139,16 +139,15 @@
       });
     //This is for adding new skill to existing group
     //Delegated on click is used, because button was dynamicly added
-
     //For new skills added slider wors because of this variable
     var j = {{size}};
       $("#skill-group").on('click', '#skill', function(){
         j++;
-        for(var l = i; l >= 0; l--){
+        for(var l = 0; l < i; l++){
           if($(this).attr("data") == l){
             $('#group'+l).append(
+                '<ul>'+
                 '<div id="skill'+j+'">'+
-                    '<i class="fa fa-trash-o" aria-hidden="true" id="removeSkill" data="'+j+'"></i>'+
               '<div class="form-group">'+
                   '<label for="skills.skill.skillName">Skill name</label>'+
                   '<input type="text" class="form-control" name="skills['+l+'][skills]['+j+'][skillName]" placeholder="Skill name">'+
@@ -158,14 +157,11 @@
                   '<br>'+
                   '<input type="text" id="ext'+ j +'" data-slider-id="ex1Slider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" name="skills['+l+'][skills]['+j+'][mastery]">'+
               '</div>'+
-                            '</div>'
+                            '</div>'+
+                        '</ul>'
             );
           
           }
-            //Deleting dynamicly generated element
-            $("#group"+l).on("click", "#removeSkill", function () {
-                $("#skill" + $(this).attr("data")).remove();
-            })
         }
       //This one we need for reloading our slider plugin otherwise we see no sliders
       $("#ext"+j).slider({
@@ -176,6 +172,7 @@
       });
     </script>
     <script>
+        //Initializing slider for elements that are already in dom
         $("#form input[id]").each(function () {
             console.log(this.id);
             $("#"+this.id).slider({
@@ -186,8 +183,8 @@
         });
     </script>
     <script>
+        //This is for adding new job
     var n = {{page.expirience.length}};
-    //This is for adding new job
       $("#job").click(function(){
         $('#exp').append(
           '<div id="job'+n+'">'+
@@ -213,10 +210,8 @@
         );
         n++;
       });
-    </script>
-    <script>
-    var g = {{page.education.length}};
     //This is for adding new school
+    var g = {{page.education.length}};
       $("#school").click(function() {
           $('#educ').append(
                   '<div id="school' + g + '">' +
@@ -244,8 +239,11 @@
       });
     </script>
   <script>
-      //Just stupidly copied from above
-      //This is for elements that is already in dom
+    /*
+    AJAX calls
+     */
+
+    //Remove school
           $("#educ").on("click", "#removeSchool", function () {
               $.ajax({
                   url: 'delete/school/' + $(this).attr("value"),
@@ -256,10 +254,8 @@
               })
               $("#school" + $(this).attr("data")).remove();
           })
-  </script>
-  <script>
-      //Just stupidly copied from above
-      //This is for elements that is already in dom
+
+    //Remove job
       $("#exp").on("click", "#removeJob", function () {
           $.ajax({
               url: 'delete/job/' + $(this).attr("value"),
@@ -270,10 +266,8 @@
           })
           $("#job" + $(this).attr("data")).remove();
       })
-  </script>
-  <script>
-      //Just stupidly copied from above
-      //This is for elements that is already in dom
+
+    //Remove skill group
       $("#skill-group").on("click", "#removeGroup", function () {
           $.ajax({
               url: 'delete/group/' + $(this).attr("value"),
@@ -283,12 +277,6 @@
               }
           })
           $("#group" + $(this).attr("data")).remove();
-      })
-  </script>
-  <script>
-      //This is for elements that is already in dom
-      $("#group").on("click", "#removeSkill", function () {
-          $("#skill" + $(this).attr("data")).remove();
       })
   </script>
   </body>

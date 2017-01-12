@@ -68,5 +68,14 @@ router.delete('/delete/group/:id', function (req, res) {
     }
 });
 
+router.get('/delete', function (req, res) {
+    Page.collection.drop();
+    var page = new Page();
+    page.save(function (err) {
+        if(err) throw err;
+        res.redirect('/');
+    });
+});
+
 
 module.exports = router;
