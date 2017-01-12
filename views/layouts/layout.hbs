@@ -261,6 +261,13 @@
       //Just stupidly copied from above
       //This is for elements that is already in dom
       $("#exp").on("click", "#removeJob", function () {
+          $.ajax({
+              url: 'delete/job/' + $(this).attr("value"),
+              type: 'DELETE',
+              success: function (result) {
+                  console.log(result);
+              }
+          })
           $("#job" + $(this).attr("data")).remove();
       })
   </script>

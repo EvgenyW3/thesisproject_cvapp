@@ -110,7 +110,7 @@
                 {{#each page.expirience}}
                 <div id="job{{@index}}">
                     <hr>
-                    <i class="fa fa-trash-o" aria-hidden="true" id="removeJob" data="{{@index}}"></i>
+                    <i class="fa fa-trash-o" aria-hidden="true" id="removeJob" data="{{@index}}" value="{{this._id}}"></i>
                     <div class="form-group">
                     <label for="expirience.employerName">Employer name</label>
                     <input type="text" class="form-control" name="expirience[{{@index}}][employerName]" placeholder="Employer name" value="{{this.employerName}}">

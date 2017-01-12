@@ -31,10 +31,19 @@ router.post('/update', function(req, res) {
 router.delete('/delete/school/:id', function (req, res) {
     Page.findOne(function (err, page) {
         if(err) throw err;
-        var job = page.education.id(req.params.id).remove();
+        var school = page.education.id(req.params.id).remove();
         page.save(function (error) {
             if(error) throw error;
             });
+    });
+});
+router.delete('/delete/job/:id', function (req, res) {
+    Page.findOne(function (err, page) {
+        if(err) throw err;
+        var job = page.expirience.id(req.params.id).remove();
+        page.save(function (error) {
+            if(error) throw error;
+        });
     });
 });
 
