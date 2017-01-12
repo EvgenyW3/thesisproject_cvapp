@@ -136,10 +136,6 @@
           '</div>'
         );
         i++;
-          //Deleting dynamicly generated element
-          $("#skill-group").on("click", "#removeGroup", function () {
-              $("#group" + $(this).attr("data")).remove();
-          })
       });
     //This is for adding new skill to existing group
     //Delegated on click is used, because button was dynamicly added
@@ -166,11 +162,11 @@
             );
           
           }
+            //Deleting dynamicly generated element
+            $("#group"+l).on("click", "#removeSkill", function () {
+                $("#skill" + $(this).attr("data")).remove();
+            })
         }
-          //Deleting dynamicly generated element
-          $("#group"+j).on("click", "#removeSkill", function () {
-              $("#skill" + $(this).attr("data")).remove();
-          })
       //This one we need for reloading our slider plugin otherwise we see no sliders
       $("#ext"+j).slider({
         formatter: function(value) {
@@ -216,44 +212,36 @@
                   '</div>'
         );
         n++;
-          //Deleting dynamicly generated element
-          $("#exp").on("click", "#removeJob", function () {
-              $("#job" + $(this).attr("data")).remove();
-          })
       });
     </script>
     <script>
     var g = {{page.education.length}};
     //This is for adding new school
-      $("#school").click(function(){
-        $('#educ').append(
-                  '<div id="school'+g+'">'+
-                  '<hr>'+
-                  '<i class="fa fa-trash-o" aria-hidden="true" id="removeSchool" data="'+g+'"></i>'+
-          '<div class="form-group">'+
-                '<label for="education.schoolName">School name</label>'+
-                '<input type="text" class="form-control" name="education['+g+'][schoolName]" placeholder="School name">'+
-            '</div>'+
-            '<div class="form-group">'+
-                '<label for="education.programmeName">Programme</label>'+
-                '<input type="text" class="form-control" name="education['+g+'][programmeName]" placeholder="Programme">'+
-            '</div>'+
-            '<div class="form-group">'+
-                '<label for="education.date">Date</label>'+
-                '<input type="text" class="form-control" name="education['+g+'][date]" placeholder="mm.yyyy - mm.yyyy">'+
-            '</div>'+
-            '<div class="form-group">'+
-                '<label for="education.explanation">Description</label>'+
-                '<textarea rows="5" class="form-control" name="education['+g+'][explanation]" placeholder="Description" />'+
-            '</div>'+
+      $("#school").click(function() {
+          $('#educ').append(
+                  '<div id="school' + g + '">' +
+                  '<hr>' +
+                  '<i class="fa fa-trash-o" aria-hidden="true" id="removeSchool" data="' + g + '"></i>' +
+                  '<div class="form-group">' +
+                  '<label for="education.schoolName">School name</label>' +
+                  '<input type="text" class="form-control" name="education[' + g + '][schoolName]" placeholder="School name">' +
+                  '</div>' +
+                  '<div class="form-group">' +
+                  '<label for="education.programmeName">Programme</label>' +
+                  '<input type="text" class="form-control" name="education[' + g + '][programmeName]" placeholder="Programme">' +
+                  '</div>' +
+                  '<div class="form-group">' +
+                  '<label for="education.date">Date</label>' +
+                  '<input type="text" class="form-control" name="education[' + g + '][date]" placeholder="mm.yyyy - mm.yyyy">' +
+                  '</div>' +
+                  '<div class="form-group">' +
+                  '<label for="education.explanation">Description</label>' +
+                  '<textarea rows="5" class="form-control" name="education[' + g + '][explanation]" placeholder="Description" />' +
+                  '</div>' +
                   '</div>'
-        );
-        g++;
-        //Deleting dynamicly generated element
-        $("#educ").on("click", "#removeSchool", function () {
-                $("#school" + $(this).attr("data")).remove();
-            })
-        })
+          );
+          g++;
+      });
     </script>
   <script>
       //Just stupidly copied from above
