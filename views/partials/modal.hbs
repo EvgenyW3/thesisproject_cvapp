@@ -73,6 +73,10 @@
                 <button type="button" class="btn btn-primary" id="group">Add skill group</button>
             </div>
             <div class="skill-group" id="skill-group">
+                <div class="alert alert-warning">
+                    <strong>Warning!</strong> If you want to delete a particular skill from a group of skills,
+                    you will have to save changes by pressing button at the bottom of this window.
+                </div>
                 {{# each page.skills}}
                     <div id="group{{@index}}">
                         <hr>
@@ -85,6 +89,8 @@
                         <button type="button" class="btn btn-primary" id="skill" data="{{@index}}">Add skill</button>
                         </div>
                         {{# each this.skills}}
+                            <div id="skill{{@index}}">
+                                <i class="fa fa-trash-o" aria-hidden="true" id="removeSkill" data="{{@index}}" value="{{this._id}}"></i>
                             <div class="form-group">
                             <label for="skills.skill.skillName">Skill name</label>
                             <input type="text" class="form-control" name="skills[{{@../index}}][skills][{{@index}}][skillName]" placeholder="Skill name" value="{{this.skillName}}">
@@ -93,6 +99,7 @@
                             <label for="skills.skill.mastery">Skill mastery</label>
                             <br>
                             <input type="text" id="ext0{{@../index}}{{@index}}" data-slider-id="ex1Slider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="{{this.mastery}}" value="{{this.mastery}}" name="skills[{{@../index}}][skills][{{@index}}][mastery]">
+                            </div>
                             </div>
                         {{/each}}
                     </div>

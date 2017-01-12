@@ -285,5 +285,11 @@
           $("#group" + $(this).attr("data")).remove();
       })
   </script>
+  <script>
+      //This is for elements that is already in dom
+      $("#group").on("click", "#removeSkill", function () {
+          $("#skill" + $(this).attr("data")).remove();
+      })
+  </script>
   </body>
 </html>
