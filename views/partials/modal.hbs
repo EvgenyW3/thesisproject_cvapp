@@ -1,9 +1,14 @@
 <!-- Button trigger modal -->
 <button class="btn btn-default" id="modalTrigger" data-toggle="modal" data-target="#myModal">Create / Update</button>
-<a class="fa fa-trash-o" href="/delete" style="margin-top: -20px; font-size: 40px; text-decoration: none;" onclick="myConfirm();"></a>
+<!-- Button for deleting CV -->
+<a class="fa fa-trash-o" href="/delete" id="deletecv" onclick="return myConfirm();"></a>
 <script>
     function myConfirm() {
-        confirm("Are you sure that you want to delete your CV?");
+        if(confirm("Are you sure that you want to delete your CV?")){
+            return true;
+        }else{
+            return false;
+        }
     }
 </script>
 <!-- Modal -->
@@ -79,7 +84,7 @@
             </div>
             <div class="skill-group" id="skill-group">
                 <div class="alert alert-warning">
-                    <strong>Warning!</strong> Single skill can not be deleted, you will have to delete the whole group.
+                    <strong>Warning!</strong> Single skill can not be deleted, you will have to delete the whole skill group.
                 </div>
                 {{# each page.skills}}
                     <div id="group{{@index}}">

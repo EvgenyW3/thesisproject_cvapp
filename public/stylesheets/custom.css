@@ -365,6 +365,20 @@ section#education .panel-body{
 	color: #d9534f;
 	cursor: pointer;
 }
+#deletecv{
+    font-size: 40px;
+    text-decoration: none;
+    color: #d9534f;
+    /* Transition is for smooth color change */
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+}
+#deletecv:hover{
+    color: #00a69a;
+}
 
 @media (min-width: 992px){
 	.job{
