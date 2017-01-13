@@ -1,173 +1,192 @@
 <!-- Main content -->
 <section class="about" id="about">
-	                <h2>ABOUT ME</h2>
-	                <p><small>{{page.aboutSubtitle}}</small></p>
+    <h2>ABOUT ME</h2>
+    <p>
+        <small>{{page.aboutSubtitle}}</small>
+    </p>
 
-	                <div class="row margin-bottom">
+    <div class="row margin-bottom">
 
-	                  <div class="col-md-8">
+        <div class="col-md-8">
 
-	                    <p>
-	                      {{page.about.coverLetter}}
-	                    </p>
+            <p>
+                {{page.about.coverLetter}}
+            </p>
 
-	                  </div>
+        </div>
 
-	                  <div class="col-md-4 text-center">
+        <div class="col-md-4 text-center">
 
-	                    <p class="lead text-center">
-	                      <i class="fa fa-level-down" id="level-down"></i>
-	                    </p>
-	                    <a href="/files/{{page.cv}}" class="btn btn-lg btn-block btn-default" id="hover">
-	                      <i class="fa fa-file-text-o"></i>&nbsp; Resume PDF
-	                    </a>
+            <p class="lead text-center">
+                <i class="fa fa-level-down" id="level-down"></i>
+            </p>
+            <a href="/files/{{page.cv}}" class="btn btn-lg btn-block btn-default" id="hover">
+                <i class="fa fa-file-text-o"></i>&nbsp; Resume PDF
+            </a>
 
-	                  </div>
+        </div>
 
-	                </div>
+    </div>
 
-	                <div class="row">
+    <div class="row">
 
-	                  <div class="col-md-5 col-lg-3">
+        <div class="col-md-5 col-lg-3">
 
-	                    <article class="media">
+            <article class="media">
 
-	                      <div class="pull-left">
-	                        <span class="fa fa-phone bg-primary text-primary"></span>
-	                      </div>
-	                      <div class="media-inline">{{page.about.phoneNumber}}</div>
+                <div class="pull-left">
+                    <span class="fa fa-phone bg-primary text-primary"></span>
+                </div>
+                <div class="media-inline">{{page.about.phoneNumber}}</div>
 
-	                    </article>
+            </article>
 
-	                  </div>
+        </div>
 
-	                  <div class="col-md-7 col-lg-4">
+        <div class="col-md-7 col-lg-4">
 
-	                    <article class="media">
+            <article class="media">
 
-	                      <div class="pull-left">
-	                        <span class="fa fa-envelope bg-primary text-primary"></span>
-	                      </div>
-	                      <div class="media-inline">{{page.about.email}}</div>
+                <div class="pull-left">
+                    <span class="fa fa-envelope bg-primary text-primary"></span>
+                </div>
+                <div class="media-inline">{{page.about.email}}</div>
 
-	                    </article>
+            </article>
 
-	                  </div>
+        </div>
 
-	                  <div class="col-md-12 col-lg-5">
+        <div class="col-md-12 col-lg-5">
 
-	                    <article class="media">
+            <article class="media">
 
-	                      <div class="pull-left">
-	                        <span class="fa fa-map-marker bg-primary text-primary"></span>
-	                      </div>
-	                      <div class="media-inline">{{page.about.address}}</div>
+                <div class="pull-left">
+                    <span class="fa fa-map-marker bg-primary text-primary"></span>
+                </div>
+                <div class="media-inline">{{page.about.address}}</div>
 
-	                    </article>
+            </article>
 
-	                  </div>
+        </div>
 
-	                </div>
-				</section>
-				<section class="skills" id="skills">
+    </div>
+</section>
+<section class="skills" id="skills">
 
-	                <h2>SKILLS</h2>
-	                <p><small>{{page.skillsSubtitle}}</small></p>
+    <h2>SKILLS</h2>
+    <p>
+        <small>{{page.skillsSubtitle}}</small>
+    </p>
 
-	                <div class="row"> <!-- Trick for chain break -->
-	                {{#each page.skills}}
-	                  <!--Skill block-->
-	                  <div class="col-lg-6 margin-bottom">
+    <div class="row"> <!-- Trick for chain break -->
+        {{#each page.skills}}
+            <!--Skill block-->
+            <div class="col-lg-6 margin-bottom">
 
-	                    <h4 class="margin-bottom">{{this.title}}</h4>
-	                    {{#each this.skills}}
-	                  
-	                    <div class="progress">
-	                      <div class="progress-bar" style="width: {{this.mastery}}%">{{this.skillName}}</div>
-	                    </div>
-	                    {{/each}}
+                <h4 class="margin-bottom">{{this.title}}</h4>
+                {{#each this.skills}}
+                {{#if this}}
+                    <div class="progress">
+                        <div class="progress-bar" style="width: {{this.mastery}}%">{{this.skillName}}</div>
+                    </div>
+                {{/if}}
+                {{/each}}
 
-	                    <div class="progress level">
-	                      <div class="progress-bar" style="width:25%">
-	                        Newbie
-	                      </div>
-	                      <div class="progress-bar" style="width:25%">
-	                        Good
-	                      </div>
-	                      <div class="progress-bar" style="width:25%">
-	                        Pretty Good
-	                      </div>
-	                      <div class="progress-bar" style="width:25%">
-	                        Superhero
-	                      </div>
-	                    </div>
-	                  </div><!--/ Skill block-->
-	                  {{/each}}
-				</section>
-				<section class="experience" id="experience">
+                <div class="progress level">
+                    <div class="progress-bar" style="width:25%">
+                        Newbie
+                    </div>
+                    <div class="progress-bar" style="width:25%">
+                        Good
+                    </div>
+                    <div class="progress-bar" style="width:25%">
+                        Pretty Good
+                    </div>
+                    <div class="progress-bar" style="width:25%">
+                        Superhero
+                    </div>
+                </div>
+            </div><!--/ Skill block-->
+        {{/each}}
+</section>
+<section class="experience" id="experience">
 
-	                <h2>EXPERIENCE</h2>
-	                <p><small>{{page.expirienceSubtitle}}</small></p>
-	                	{{#each page.expirience}}
-		                <!-- job1 -->
-		                <article class="job-item">
-			                <div class="row">
-				                <div class="col-md-2">
-				                  <div class="job-year"><small>{{this.date}}</small></div>
-				                </div>
-				                <div class="col-md-10 job">
-					                <div class="panel">
-					                    <div class="panel-heading">
-					                      <div class="panel-title">
-					                        <h4 class="job-title"><i class="fa fa-minus-square" id="j{{@index}}" aria-hidden="true"></i>{{this.employerName}}<span class="text-decor"> / {{this.position}}</span></h4>
-					                      </div>
-					                    </div>
+    <h2>EXPERIENCE</h2>
+    <p>
+        <small>{{page.expirienceSubtitle}}</small>
+    </p>
+    {{reverse page.expirience}}
+    {{#each page.expirience}}
+        <!-- job1 -->
+        <article class="job-item">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="job-year">
+                        <small>{{this.date}}</small>
+                    </div>
+                </div>
+                <div class="col-md-10 job">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <h4 class="job-title"><i class="fa fa-minus-square" id="j{{@index}}"
+                                                         aria-hidden="true"></i>{{this.employerName}}<span
+                                        class="text-decor"> / {{this.position}}</span></h4>
+                            </div>
+                        </div>
 
-					                    <div id="jobs{{@index}}" aria-expanded="true">
-					                      <div class="panel-body">
-					                        <p>
-											{{this.explanation}}  
-					                        </p>
-					                      </div>
-					                    </div>
-					                </div>
-				                </div>
-			                </div>
-		                </article><!--/ job1 -->
-		                {{/each}}
-				</section>
-				<section class="education" id="education">
-					<h2>EDUCATION</h2>
-	                <p><small>{{page.educationSubtitle}}</small></p>
-	                	{{#each page.education}}
-		                <!-- school1 -->
-		                <article class="edu-item">
-			                <div class="row">
-				                <div class="col-md-2">
-				                  <div class="edu-year"><small>{{this.date}}</small></div>
-				                </div>
-				                <div class="col-md-10 edu">
-					                <div class="panel">
+                        <div id="jobs{{@index}}" aria-expanded="true">
+                            <div class="panel-body">
+                                <p>
+                                    {{this.explanation}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article><!--/ job1 -->
+    {{/each}}
+</section>
+<section class="education" id="education">
+    <h2>EDUCATION</h2>
+    <p>
+        <small>{{page.educationSubtitle}}</small>
+    </p>
+    {{reverse page.education}}
+    {{#each page.education}}
+        <!-- school1 -->
+        <article class="edu-item">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="edu-year">
+                        <small>{{this.date}}</small>
+                    </div>
+                </div>
+                <div class="col-md-10 edu">
+                    <div class="panel">
 
-					                    <div class="panel-heading">
-					                      <div class="panel-title">
-					                        <h4 class="edu-title"><i class="fa fa-minus-square" id="s{{@index}}" aria-hidden="true"></i>{{this.schoolName}}<span class="text-decor"> / {{this.programmeName}}</span></h4>
-					                      </div>
-					                    </div>
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <h4 class="edu-title"><i class="fa fa-minus-square" id="s{{@index}}"
+                                                         aria-hidden="true"></i>{{this.schoolName}}<span
+                                        class="text-decor"> / {{this.programmeName}}</span></h4>
+                            </div>
+                        </div>
 
-					                    <div id="schools{{@index}}" aria-expanded="true">
-					                      <div class="panel-body">
-					                        <p>
-					                          {{this.explanation}}  
-					                        </p>
-					                      </div>
-					                    </div>
-					                </div>
-				                </div>
-			                </div>
-		                </article><!--/ school1 -->
-		                {{/each}}
-				</section>
-				<footer class="visible-xs main-footer">
-              		<p class="text-center">{{page.author}}©2016 <span class="text-decor">{{page.profession}}</span></p>
-            	</footer>
+                        <div id="schools{{@index}}" aria-expanded="true">
+                            <div class="panel-body">
+                                <p>
+                                    {{this.explanation}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article><!--/ school1 -->
+    {{/each}}
+</section>
+<footer class="visible-xs main-footer">
+    <p class="text-center">{{page.author}}©2016 <span class="text-decor">{{page.profession}}</span></p>
+</footer>

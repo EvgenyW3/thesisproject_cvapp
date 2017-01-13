@@ -32,7 +32,11 @@ router.get('/', function(req, res) {
             for(var i = 0; i < list.length; i++){
 				size += list[i].skills.length;
             }
-			res.render('index', { title: page.author, page: page, size: size });
+			res.render('index', { title: page.author, page: page, size: size, helpers:{
+                reverse: function (arr) {
+                    arr.reverse();
+                }
+            }});
 		}
 	});
 });

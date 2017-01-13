@@ -25,11 +25,11 @@
             <input type="hidden" value="{{page._id}}" name="id"/>
         	<div class="form-group">
                 <label for="photo">Upload photo</label>
-                <input type="file" class="form-control" name="photo" value="{{page.photo}}">
+                <input type="file" class="form-control" name="photo">
             </div>
             <div class="form-group">
                 <label for="cv">Upload CV</label>
-                <input type="file" class="form-control" name="cv" value="{{page.cv}}">
+                <input type="file" class="form-control" name="cv">
             </div>
             <div class="form-group">
             	<label for="author">Author</label>
@@ -82,10 +82,10 @@
             <div class="form-group">
                 <button type="button" class="btn btn-primary" id="group">Add skill group</button>
             </div>
+            <div class="alert alert-warning">
+                <strong>Warning!</strong> Single skill can not be deleted, you will have to delete the whole skill group.
+            </div>
             <div class="skill-group" id="skill-group">
-                <div class="alert alert-warning">
-                    <strong>Warning!</strong> Single skill can not be deleted, you will have to delete the whole skill group.
-                </div>
                 {{# each page.skills}}
                     <div id="group{{@index}}">
                         <hr>
@@ -98,6 +98,7 @@
                         <button type="button" class="btn btn-primary" id="skill" data="{{@index}}">Add skill</button>
                         </div>
                         {{# each this.skills}}
+                            {{#if this}}
                             <ul>
                             <div id="skill{{@index}}">
                             <div class="form-group">
@@ -111,6 +112,7 @@
                             </div>
                             </div>
                             </ul>
+                            {{/if}}
                         {{/each}}
                     </div>
                 {{/each}}

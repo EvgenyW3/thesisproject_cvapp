@@ -122,7 +122,7 @@
     //This is for adding new skill group
     var i = {{page.skills.length}};
       $("#group").click(function(){
-        $('#skill-group').append(
+        $('#skill-group').prepend(
           '<div id="group'+ i + '">'+
           '<hr>'+
           '<i class="fa fa-trash-o" aria-hidden="true" id="removeGroup" data="'+i+'"></i>'+
@@ -186,7 +186,7 @@
         //This is for adding new job
     var n = {{page.expirience.length}};
       $("#job").click(function(){
-        $('#exp').append(
+        $('#exp').prepend(
           '<div id="job'+n+'">'+
           '<hr>'+
           '<i class="fa fa-trash-o" aria-hidden="true" id="removeJob" data="'+n+'"></i>'+
@@ -213,7 +213,7 @@
     //This is for adding new school
     var g = {{page.education.length}};
       $("#school").click(function() {
-          $('#educ').append(
+          $('#educ').prepend(
                   '<div id="school' + g + '">' +
                   '<hr>' +
                   '<i class="fa fa-trash-o" aria-hidden="true" id="removeSchool" data="' + g + '"></i>' +
