@@ -127,6 +127,7 @@
                 <button type="button" class="btn btn-primary" id="job">Add job</button>
             </div>
             <div class="exp" id="exp">
+                {{reverse page.education}}
                 {{#each page.expirience}}
                 <div id="job{{@index}}">
                     <hr>
@@ -160,6 +161,7 @@
                 <button type="button" class="btn btn-primary" id="school">Add school</button>
             </div>
             <div class="education" id="educ">
+                {{reverse page.education}}
                 {{#each page.education}}
                     <div id="school{{@index}}">
                         <hr>
