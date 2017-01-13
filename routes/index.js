@@ -2,6 +2,21 @@ var express = require('express');
 var router = express.Router();
 var Page = require('../models/page.js');
 var mongoose = require('mongoose');
+//Module for uploading images
+var multer = require('multer');
+//This is for preventing multer from giving name without extention
+var storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, 'public/files/')
+    },
+    filename: function(req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
+var upload = multer({
+    storage: storage
+});
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -21,8 +36,10 @@ router.get('/', function(req, res) {
 		}
 	});
 });
-
-router.post('/update', function(req, res) {
+var myUpload = upload.fields([{ name: 'photo', maxCount: 1 }, { name: 'cv', maxCount: 1 }])
+router.post('/update', myUpload, function(req, res) {
+    if(req.files.photo) req.body.photo = req.files.photo[0].filename;
+    if(req.files.cv) req.body.cv = req.files.cv[0].filename;
     Page.update({_id: req.body.id}, req.body, function (err) {
         if (err) throw err;
         res.redirect('/');

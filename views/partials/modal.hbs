@@ -20,7 +20,7 @@
         <h4 class="modal-title" id="myModalLabel">Create / Update</h4>
       </div>
       <div class="modal-body">
-      	<form method="POST" action="update" id="form">
+      	<form method="POST" action="update" id="form" enctype="multipart/form-data">
         	<h4>Personal information</h4>
             <input type="hidden" value="{{page._id}}" name="id"/>
         	<div class="form-group">

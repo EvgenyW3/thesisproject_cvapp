@@ -36,6 +36,16 @@ p{
 	/* Black-white filter for the image*/
 	-webkit-filter: grayscale(50%); /* Safari 6.0 - 9.0 */
     filter: grayscale(50%);
+
+	display:block;
+
+	/* Centering on image`s center*/
+	background-position-y: center;
+	background-position-x: center;
+	background-repeat: no-repeat;
+
+	/* it makes the clue thing, takes smaller dimension to fill div */
+	background-size: cover;
 }
 /* Styling for author label container */
 .label{
