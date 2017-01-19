@@ -118,7 +118,7 @@ router.get('/delete', function (req, res) {
     var page = new Page();
     page.save(function (err) {
         if(err) throw err;
-        res.redirect('/');
+        res.redirect('/admin');
     });
 });
 // render login form

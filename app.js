@@ -32,6 +32,7 @@ User.findOne(function(err, user){
     if(err) throw err;
     if(!user) {
         var user = new User();
+        // email and password must be changed on first run!!!
         user.email = "admin@admin.fi";
         user.password = user.generateHash("admin");
         user.save();
