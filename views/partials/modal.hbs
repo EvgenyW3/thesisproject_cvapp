@@ -1,7 +1,11 @@
-<!-- Button trigger modal -->
-<button class="btn btn-default" id="modalTrigger" data-toggle="modal" data-target="#myModal">Create / Update</button>
-<!-- Button for deleting CV -->
-<a class="fa fa-trash-o" href="/delete" id="deletecv" onclick="return myConfirm();"></a>
+<table style="margin-top: -20px">
+<tr>
+    <td><button class="btn btn-default" id="modalTrigger" data-toggle="modal" data-target="#myModal">Create / Update</button></td>
+    <td><a href="/delete" onclick="return myConfirm();"><button style="width: 100%" class="btn btn-danger">Delete CV</button></a></td>
+    <td><a href="/logout"><button style="width: 100%" class="btn btn-warning">Logout</button></a></td>
+</tr>
+</table>
+
 <script>
     function myConfirm() {
         if(confirm("Are you sure that you want to delete your CV?")){
