@@ -26,10 +26,12 @@ passport.use('local-login', new LocalStrategy({
             // if there are any errors, return the error before anything else
             if (err)
                 return done(err);
+            // if no user is found, return the message
+            if (!user)
+                return done(null, false, req.flash('error', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
             // if the user is found but the password is wrong
             if (!user.validPassword(password))
-                return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashd
-            // all is well, return successful user (validation is cutten)
+                return done(null, false, req.flash('error', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashd
             return done(null, user);
         });
 
