@@ -123,7 +123,7 @@ router.get('/delete', function (req, res) {
 });
 // render login form
 router.get('/login', function (req, res) {
-    res.render('login',{ message: 'Welcome admin! Log in to add/modify info', layout: null});
+    res.render('login',{ message: req.flash('error'), layout: null});
 });
 
 // process the login form
