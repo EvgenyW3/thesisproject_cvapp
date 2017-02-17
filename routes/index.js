@@ -73,6 +73,13 @@ router.post('/update', myUpload, function(req, res) {
         res.redirect('/admin');
     });
 });
+
+//protecting all the delete routes
+router.all("/delete/*", isLoggedIn, function(req, res, next) {
+  next(); // if the middleware allowed us to get here,
+          // just move on to the next route handler
+});
+
 router.delete('/delete/school/:id', function (req, res) {
     if(req.params.id !== "undefined") {
         Page.findOne(function (err, page) {
@@ -113,18 +120,13 @@ router.delete('/delete/group/:id', function (req, res) {
     }
 });
 
-router.get('/delete', function (req, res) {
+router.get('/delete', isLoggedIn, function (req, res) {
     Page.collection.drop();
     var page = new Page();
     page.save(function (err) {
         if(err) throw err;
         res.redirect('/admin');
     });
-});
-//protecting all the delete routes
-app.all("/delete/*", isLoggedIn, function(req, res, next) {
-  next(); // if the middleware allowed us to get here,
-          // just move on to the next route handler
 });
 
 // render login form
