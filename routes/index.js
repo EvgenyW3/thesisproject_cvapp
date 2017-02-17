@@ -121,6 +121,12 @@ router.get('/delete', function (req, res) {
         res.redirect('/admin');
     });
 });
+//protecting all the delete routes
+app.all("/delete/*", isLoggedIn, function(req, res, next) {
+  next(); // if the middleware allowed us to get here,
+          // just move on to the next route handler
+});
+
 // render login form
 router.get('/login', function (req, res) {
     res.render('login',{ message: req.flash('error'), layout: null});
