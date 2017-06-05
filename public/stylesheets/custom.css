@@ -34,8 +34,6 @@ p{
 	border: 2px solid white;
 	/*box-shadow: 1px 1px 5px grey;*/
 	/* Black-white filter for the image*/
-	-webkit-filter: grayscale(50%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(50%);
 
 	display:block;
 

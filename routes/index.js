@@ -53,6 +53,7 @@ router.get('/admin', isLoggedIn, function(req, res) {
             var list = page.skills;
             var size = 0;
             for(var i = 0; i < list.length; i++){
+                if(list[i] != null)
                 size += list[i].skills.length;
             }
             res.render('index', { title: page.author, page: page, size: size, helpers:{
